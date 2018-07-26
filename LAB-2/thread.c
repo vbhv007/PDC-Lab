@@ -17,11 +17,12 @@ int is_prime(int num){
 }
 
 main(void){
+	int diff = 0;
 	#pragma omp parallel
 	{
-		long i, first = 2, temp = 0, diff = 0;
+		int i, first = 2, temp = 0;
 		#pragma omp parallel for
-		for(i = 3; i < 10000000; i++){
+		for(i = 3; i < 5000; i++){
 			if(is_prime(i)){
 				temp = i - first;
 				first = i;
@@ -30,7 +31,7 @@ main(void){
 				}
 			}		
 		}
-		printf("%l\n", diff);
 	}
+	printf("%d\n", diff);
 }
 

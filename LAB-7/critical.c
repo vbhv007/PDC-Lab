@@ -8,6 +8,7 @@ int main(int argc, char *argv[]){
 	{
 		#pragma omp critical
 		x = x + 1;
+		printf("X = %d, T = %d\n", x, omp_get_thread_num());
 	}
 	printf("%d\n", x);
 }
